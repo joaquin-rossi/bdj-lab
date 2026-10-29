@@ -1,0 +1,62 @@
+disc:
+  label: "BDJ_LAB_DEMO"
+  name: "BDJ Lab Demo"
+  date: 2026-10-29
+  language: eng
+  org_id: "cafebabe"
+  disc_id: "0123456789abcdef0123456789abcdef"
+
+signing:
+  keystore: assets/keys/bd.jks
+  password: "${BD_STOREPASS}"
+  organization: "BDJ Lab"
+  unit: "Codesigning Department"
+  country: US
+  email: bdj-lab@example.com
+
+content:
+  apps:
+    - name: menu
+      src: src
+      class: HelloXlet
+
+  clips:
+    - name: test
+      file: assets/videos/test.mp4
+      audio:
+        - { bitrate: 192k, channels: 2 }
+
+    - name: piracy-warning
+      file: assets/videos/piracy-warning.mp4
+      audio:
+        - { bitrate: 448k, channels: 6 }
+
+  fonts:
+    - name: Sans
+      style: bold
+      file: assets/fonts/DejaVuSans-Bold.ttf
+
+navigation:
+  first_play: piracy-warning
+  top_menu: menu
+
+  titles:
+    - name: menu
+      type: app
+      app:
+        name: menu
+        resolution: 1920x1080
+
+    - name: video
+      type: clip
+      clip:
+        name: test
+        then: menu
+
+    - name: piracy-warning
+      hidden: true
+      type: clip
+      clip:
+        name: piracy-warning
+        then: menu
+        mask: [menu, title_search, chapter_search, time_search, skip_next, forward]

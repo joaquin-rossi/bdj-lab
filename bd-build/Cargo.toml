@@ -1,0 +1,13 @@
+[package]
+name = "bd-build"
+description = "Builds Blu-ray disc images with BD-J menus from a declarative config"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+anyhow = "1"
+serde = { version = "1", features = ["derive"] }
+serde_norway = "0.9"
+udf-image = { path = "../udf-image" }

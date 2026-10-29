@@ -1,0 +1,9 @@
+[package]
+name = "udf-image"
+description = "Writes directories as UDF 2.50 images laid out like Blu-ray discs"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
